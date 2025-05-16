@@ -34,12 +34,14 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Build and analyze
+        run: mvn -B -T 2C install -DskipTests          
+      - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
  #       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 -Dsonar.projectName='trino'
         run: |
-            mvn -B -T 2C verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            mvn-f pom-analysis.xml org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.inclusions=**/*.java -Dsonar.exclusions=trino-client/**,**/src/test/**,client/** \
             -Dair.check.skip-all -DskipTests -Denforcer.fail=false -Denforcer.skip=true \
             -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 \
