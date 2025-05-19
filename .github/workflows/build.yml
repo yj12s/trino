@@ -45,4 +45,5 @@ jobs:
             -Dsonar.inclusions=**/*.java -Dsonar.exclusions=trino-client/**,**/src/test/**,client/** \
             -Dair.check.skip-all -DskipTests -Denforcer.fail=false -Denforcer.skip=true \
             -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 \
-            -Dsonar.projectName='trino'
+            -Dsonar.projectName='trino' \
+            -Dpmd.threads=0
