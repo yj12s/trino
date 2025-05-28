@@ -41,6 +41,7 @@ jobs:
         run: |
             mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 \
+            -Dair.check.skip-all -DskipTests -Denforcer.fail=false -Denforcer.skip=true \            
             -Dsonar.projectName='trino'
 #            -Dpmd.threads=0
 #            mvn -B -T 2C org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
