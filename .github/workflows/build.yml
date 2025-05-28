@@ -39,7 +39,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
  #       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 -Dsonar.projectName='trino'
         run: |
-            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=yj12s_trino_0360783a-f4aa-4112-a7f0-c676e4f98a49 \
             -Dsonar.projectName='trino'
 #            -Dpmd.threads=0
